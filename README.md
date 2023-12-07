@@ -8,7 +8,33 @@
 
 Specification for Electricity Trading API.
 
-TODO(cookiecutter): Improve the README file
+## Overview
+
+The Frequenz API offers a robust set of operations for managing electricity trading orders within Gridpools. 
+A Gridpool is an aggregation of multiple microgrids into a virtual power pool, designed to ensure the balancing 
+of electricity supply and demand in real time.
+
+## Objective
+
+The primary aim of this API is to streamline the process of electricity trading within balancing groups. 
+A balancing group is a network configuration that includes multiple electricity producers and consumers. 
+Grid stability relies on maintaining a balance between supply and demand within these groups. Participants 
+causing imbalances can face financial penalties. Using this API, individual participants can trade electricity 
+efficiently, ensuring they meet both their operational needs and financial objectives, while also contributing to 
+the overall grid stability.
+
+## Key Features
+
+- Order Placement: Facilitates the creation, modification, and deletion of trading orders.
+- Real-Time Matching: Enables real-time order matching within the Gridpool.
+- Order Tracking: Allows users to track the status of their orders, providing transparency and control.
+- Public Order Book: Provides access to a list of public orders for market visibility and analysis.
+
+## Target Audience
+
+This API is primarily designed for application developers in the energy sector who focus on electricity 
+trading, grid management, and related services. While the API covers complex energy market operations, 
+its design aims to be as developer-friendly as possible, requiring no specialized knowledge in energy systems.
 
 ## Supported Platforms
 
