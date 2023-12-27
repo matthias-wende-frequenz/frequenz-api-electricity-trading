@@ -2,7 +2,7 @@
 
 ## Summary
 
-<!-- Here goes a general summary of what this release is about -->
+Commiting the API definitions.
 
 ## Upgrading
 
@@ -10,7 +10,8 @@
 
 ## New Features
 
-<!-- Here goes the main new features and examples or instructions on how to use them -->
+- Update of the common repository with the latest Electricity related changes
+- Commiting the api specs
 
 ## Bug Fixes
 
