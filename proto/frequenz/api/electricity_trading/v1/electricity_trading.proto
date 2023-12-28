@@ -12,14 +12,14 @@ syntax = "proto3";
 
 package frequenz.api.electricity_trading.electricity_trading.v1;
 
+import "google/protobuf/field_mask.proto";
 import "google/protobuf/struct.proto";
 import "google/protobuf/timestamp.proto";
-import "google/protobuf/field_mask.proto";
 
-import "frequenz/api/common/v1/market/price.proto";
-import "frequenz/api/common/v1/market/energy.proto";
 import "frequenz/api/common/v1/grid/delivery_area.proto";
 import "frequenz/api/common/v1/grid/delivery_duration.proto";
+import "frequenz/api/common/v1/market/energy.proto";
+import "frequenz/api/common/v1/market/price.proto";
 import "frequenz/api/common/v1/pagination/pagination_info.proto";
 import "frequenz/api/common/v1/pagination/pagination_params.proto";
 
@@ -58,18 +58,21 @@ service ElectricityTradingService {
 // OrderExecutionOption defines specific behavior for the execution of an order.
 // These options provide control on how an order is handled in the market.
 enum OrderExecutionOption {
-  //  Order remains open until it's fully fulfilled, cancelled by the client,
+  // UNSPECIFIED: The order execution option has not been set.
+  ORDER_EXECUTION_OPTION_UNSPECIFIED = 0;
+
+  // Order remains open until it's fully fulfilled, cancelled by the client,
   // `valid_until` timestamp is reached, or the end of the trading session.
-  ORDER_EXECUTION_OPTION_NONE = 0;
+  ORDER_EXECUTION_OPTION_NONE = 1;
 
   // All or None: Order must be executed in its entirety, or not executed at all.
-  ORDER_EXECUTION_OPTION_AON = 1;
+  ORDER_EXECUTION_OPTION_AON = 2;
 
   // Fill or Kill: Order must be executed immediately in its entirety, or not at all.
-  ORDER_EXECUTION_OPTION_FOK = 2;
+  ORDER_EXECUTION_OPTION_FOK = 3;
 
   // Immediate or Cancel: Any portion of an order that cannot be filled immediately will be cancelled.
-  ORDER_EXECUTION_OPTION_IOC = 3;
+  ORDER_EXECUTION_OPTION_IOC = 4;
 }
 
 // Enum for the order types that can be specified for an order.
@@ -120,9 +123,9 @@ enum MarketSide {
 
 // Enum for the state of an order.
 enum OrderState {
-  // UNKNOWN: The order state is not known. This is usually the default state of a newly
+  // UNSPECIFIED: The order state is not known. This is usually the default state of a newly
   // created order object before any operations have been applied.
-  ORDER_STATE_UNKNOWN = 0;
+  ORDER_STATE_UNSPECIFIED = 0;
 
   // PENDING: The order has been sent to the marketplace but has not yet been confirmed.
   // This can be due to awaiting validation or system processing.
@@ -245,7 +248,7 @@ message OrderDetail {
   message StateDetail {
     // Enum describing the action that led to the state change.
     enum StateReason {
-      STATE_REASON_UNKNOWN = 0;
+      STATE_REASON_UNSPECIFIED = 0;
       STATE_REASON_ADD = 1; // The order was added.
       STATE_REASON_MODIFY = 2; // The order was modified.
       STATE_REASON_DELETE = 3; // The order was deleted.
@@ -263,7 +266,7 @@ message OrderDetail {
 
     // Enum describing the actor responsible for an order state change.
     enum MarketActor {
-      MARKET_ACTOR_UNKNOWN = 0;
+      MARKET_ACTOR_UNSPECIFIED = 0;
       MARKET_ACTOR_USER = 1; // The user was the actor.
       MARKET_ACTOR_MARKET_OPERATOR = 2; // The market operator was the actor.
       MARKET_ACTOR_SYSTEM = 3; // The system was the actor.
@@ -339,7 +342,7 @@ message PublicOrder {
 //     to list only the open orders on the buy side of the market.
 message GridpoolOrderFilter {
   // Optional filter for order state.
-  repeated OrderState state = 1;
+  repeated OrderState states = 1;
 
   // Optional filter for order side.
   optional MarketSide side = 2;
@@ -357,7 +360,7 @@ message GridpoolOrderFilter {
 // Parameters for filtering the historic, publicly executed orders (trades).
 message PublicOrderFilter {
   // If set, only orders in this state are returned.
-  repeated OrderState state = 1;
+  repeated OrderState states = 1;
 
   // If set, only orders with this delivery period are returned.
   optional frequenz.api.common.v1.grid.DeliveryPeriod delivery_period = 2;
@@ -527,7 +530,7 @@ message ListGridpoolOrdersRequest {
 // Response from listing orders for a given Gridpool.
 message ListGridpoolOrdersResponse {
   // List of all listed orders with their details.
-  repeated OrderDetail order_detail_list = 1;
+  repeated OrderDetail order_detail_lists = 1;
 
   // Metadata for pagination, including token for next page to retrieve.
   frequenz.api.common.v1.pagination.PaginationInfo pagination_info = 2;
@@ -571,7 +574,7 @@ message ListPublicOrdersRequest {
 // and conducting market analysis.
 message ListPublicOrdersResponse {
   // List of all public orders that met the specified filtering criteria.
-  repeated PublicOrder public_order_list = 1;
+  repeated PublicOrder public_order_lists = 1;
 
   // Metadata for pagination, including token for next page to retrieve.
   frequenz.api.common.v1.pagination.PaginationInfo pagination_info = 2;
