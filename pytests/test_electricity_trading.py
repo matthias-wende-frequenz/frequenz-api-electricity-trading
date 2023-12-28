@@ -15,11 +15,11 @@ def test_package_import() -> None:
 def test_module_import_components() -> None:
     """Test that the modules can be imported."""
     # pylint: disable=import-outside-toplevel
-    from frequenz.api.electricity_trading import electricity_trading_pb2
+    from frequenz.api.electricity_trading.v1 import electricity_trading_pb2
 
     assert electricity_trading_pb2 is not None
 
     # pylint: disable=import-outside-toplevel
-    from frequenz.api.electricity_trading import electricity_trading_pb2_grpc
+    from frequenz.api.electricity_trading.v1 import electricity_trading_pb2_grpc
 
     assert electricity_trading_pb2_grpc is not None

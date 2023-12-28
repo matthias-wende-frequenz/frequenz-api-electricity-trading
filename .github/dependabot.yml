@@ -4,7 +4,7 @@ updates:
     directory: "/"
     schedule:
       interval: "monthly"
-      day: "friday"
+      day: "monday"
     labels:
       - "part:tooling"
       - "type:tech-debt"
@@ -35,7 +35,7 @@ updates:
     directory: "/"
     schedule:
       interval: "monthly"
-      day: "friday"
+      day: "monday"
     labels:
       - "part:tooling"
       - "type:tech-debt"
@@ -53,7 +53,7 @@ updates:
       - dependency-name: "submodules/frequenz-api-common"
     schedule:
       interval: "monthly"
-      day: "friday"
+      day: "monday"
     labels:
       - "part:tooling"
       - "type:tech-debt"

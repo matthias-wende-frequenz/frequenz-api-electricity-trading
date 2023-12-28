@@ -10,17 +10,17 @@ Specification for Electricity Trading API.
 
 ## Overview
 
-The Frequenz API offers a robust set of operations for managing electricity trading orders within Gridpools. 
-A Gridpool is an aggregation of multiple microgrids into a virtual power pool, designed to ensure the balancing 
+The Frequenz API offers a robust set of operations for managing electricity trading orders within Gridpools.
+A Gridpool is an aggregation of multiple microgrids into a virtual power pool, designed to ensure the balancing
 of electricity supply and demand in real time.
 
 ## Objective
 
-The primary aim of this API is to streamline the process of electricity trading within balancing groups. 
-A balancing group is a network configuration that includes multiple electricity producers and consumers. 
-Grid stability relies on maintaining a balance between supply and demand within these groups. Participants 
-causing imbalances can face financial penalties. Using this API, individual participants can trade electricity 
-efficiently, ensuring they meet both their operational needs and financial objectives, while also contributing to 
+The primary aim of this API is to streamline the process of electricity trading within balancing groups.
+A balancing group is a network configuration that includes multiple electricity producers and consumers.
+Grid stability relies on maintaining a balance between supply and demand within these groups. Participants
+causing imbalances can face financial penalties. Using this API, individual participants can trade electricity
+efficiently, ensuring they meet both their operational needs and financial objectives, while also contributing to
 the overall grid stability.
 
 ## Key Features
@@ -32,17 +32,9 @@ the overall grid stability.
 
 ## Target Audience
 
-This API is primarily designed for application developers in the energy sector who focus on electricity 
-trading, grid management, and related services. While the API covers complex energy market operations, 
+This API is primarily designed for application developers in the energy sector who focus on electricity
+trading, grid management, and related services. While the API covers complex energy market operations,
 its design aims to be as developer-friendly as possible, requiring no specialized knowledge in energy systems.
-
-## Supported Platforms
-
-The following platforms are officially supported (tested):
-
-- **Python:** 3.11
-- **Operating System:** Ubuntu Linux 20.04
-- **Architectures:** amd64, arm64
 
 ## Contributing
 
