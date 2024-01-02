@@ -14,6 +14,7 @@ Commiting the API definitions and preparing the repo to the pass all CI tests.
 - Use googleapis repository instead of api-common-protos.
 - Update to latest repo config v0.8.
 - Commiting the electricity trading api specs.
+- Rename PublicOrders to PublicTrades
 
 ## Bug Fixes
 
