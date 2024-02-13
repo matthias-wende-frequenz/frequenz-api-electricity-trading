@@ -447,7 +447,7 @@ message PublicTradeFilter {
 //      Delivery Area B, specifying the details for each.
 //
 message CreateGridpoolOrderRequest {
-  // Unique identifier for the Gridpool to which the bid belongs.
+  // Unique identifier for the Gridpool to which the order belongs.
   uint64 gridpool_id = 1;
 
   // The details of the order being placed.
